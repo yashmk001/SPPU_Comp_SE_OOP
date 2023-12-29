@@ -12,25 +12,22 @@
 using namespace std;
 template<class T>
 void sort1(T a[], int s){
-    for (int i = 0; i < s; i++)
-    {
-        for (int j = 0; j < (s-1); j++)
-        {
-            if(a[j]>a[j+1]){
-                T temp;
-                temp = a[j+1];
-                a[j+1] = a[j];
-                a[j] = temp;
-            }
+    for (int i = 0; i < s-1; i++){
+    int min_index = i;
+    for (int j = i+1; j < s; j++){
+        if (a[j] < a[min_index]){
+            min_index = j;
         }
-        
     }
-    
-    for (int i = 0; i < s; i++)
-    {
-        cout<<a[i]<<" ";
+    T temp = a[min_index];
+    a[min_index] = a[i];
+    a[i] = temp;
     }
-    cout<<endl;
+
+    for (int i = 0; i < s; i++){
+        cout << a[i] << " ";
+    }
+    cout << endl;
 }
 int main(){
     int n;
